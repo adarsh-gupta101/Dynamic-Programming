@@ -3,10 +3,13 @@ function howSum(targetSum, numbers, memo = {}) {
   if (targetSum < 0) return null;
   for (let num of numbers) {
     const reminder = targetSum - num;
-    // console.log("REMINDERRRRRR", reminder, num, "NUMBERRRR");
+    console.log("REMINDERRRRRR", reminder, num, "NUMBERRRR");
     const reminderresult = howSum(reminder, numbers, memo);
-    // console.log("REMINDERRESULT", reminderresult, num);
+    console.log("=====================", reminderresult);
+
+
     if (reminderresult !== null) {
+      console.log([...reminderresult, num], "===");
       memo[targetSum] = [...reminderresult, num];
       return memo[targetSum];
     }
@@ -16,4 +19,4 @@ function howSum(targetSum, numbers, memo = {}) {
 }
 
 // console.log(howSum(7, [1, 3]));
-console.log(howSum(200, [4, 2]));
+console.log(howSum(20, [3, 5, 7, 9]));
